@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form class="col s12" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+    <div class="card-panel">
+      <div class="card-content">
+        <span class="card-title center">Edit the Substance</span>      
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" 
+                placeholder="Substance Name" 
+                id="Substance"
+                name="Substance"
+                [ngModel]="substance.Substance">
+              <label for="Substance">Substance</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="text"  
+                placeholder="CAS Number" 
+                id="CAS"
+                name="CAS"
+                [ngModel]="substance.CAS">
+              <label for="CAS">CAS</label>   
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Synonyms" id="Synonyms" name="Synonyms" [ngModel]="substance.Synonyms">
+                <label for="Synonyms">Synonyms</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Manufacture" id="Manufacture" name="Manufacture" [ngModel]="substance.Manufacture" class=" materialize-textarea"></textarea>
+              <label for="Manufacture">Manufacture</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="PhysicalDesc" id="PhysicalDesc" name="PhysicalDesc" [ngModel]="substance.PhysicalDesc">
+                <label for="PhysicalDesc">Physical Description</label>
+            </div>
+          </div>         
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Industry Usage" id="IndustryUsage" name="IndustryUsage" [ngModel]="substance.IndustryUsage">
+                <label for="IndustryUsage">Industry Usage</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Building Products" id="BuildingProducts" name="BuildingProducts" [ngModel]="substance.BuildingProducts" class=" materialize-textarea"></textarea>
+              <label for="BuildingProducts">Building Poducts</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Pathways of Exposure" id="PathwaysofExposure" name="PathwaysofExposure" [ngModel]="substance.PathwaysofExposure">
+                <label for="PathwaysofExposure">Pathway of Exposure</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Govt Regulations" id="GovtRegulations" name="GovtRegulations" [ngModel]="substance.GovtRegulations" class=" materialize-textarea"></textarea>
+              <label for="GovtRegulations">Government Regulations</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Industry Regulations" id="IndustryRegulations" name="IndustryRegulations" [ngModel]="substance.IndustryRegulations" class=" materialize-textarea"></textarea>
+              <label for="IndustryRegulations">Industry Regulations</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+            </div>
+          </div>
+
+          <div class="row hide">
+            <div class="col s12">
+              <a href="#">This is a link</a>
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+     </div>
+    </div>
+  </form>
+
+  </div>        
+</div>
+

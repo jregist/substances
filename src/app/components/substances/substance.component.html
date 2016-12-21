@@ -1,0 +1,155 @@
+<div class="row">
+  <div class="col s3">
+    <div class="collection indent">
+      <div class="collection-item" *ngFor="let substance of substances;">
+        <div class="substance-col1" (click)="changeState('detail',substance.$key)">{{substance.Substance}}</div>
+        <div class="substance-col2"><button (click)="showEdit(substance)" class="button secondary right">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s9">
+     <div class="row">
+       <div class="col s2 offset-s10">
+       <button class="btn" (click)="showAdd()">Add Substance</button>
+       </div>
+     </div>
+<!--  DETAIL VIEW  -->
+  <div class="row" *ngIf="appState=='detail'">
+    <div class="s2 offset-s10 col">
+      <button class="btn alert" (click)="changeState('default')">Go Back</button>
+    </div>
+    <div *ngFor="let substance of substances">
+      <div *ngIf="substance.$key==activeIndex">
+        <div class="col-xs-12">
+          <div class="card-panel">
+            <div class="card-content">
+              <span class="card-title center">{{substance.Substance}} ({{substance.CAS}})</span>
+              <table class="substancetable">
+                <tbody>
+                  <tr><td>Grouping</td><td>{{substance.Grouping}}</td></tr>
+                  <tr><td>Synonyms</td><td>{{substance.Synonyms}}</td></tr>
+                  <tr><td>Manufacture</td><td>{{substance.Manufacture}}</td></tr>
+                  <tr><td>Physical Desc</td><td>{{substance.PhysicalDesc}}</td></tr>
+                  <tr><td>Industry Usage</td><td>{{substance.IndustryUsage}}</td></tr>
+                  <tr><td>Building Products</td><td>{{substance.BuildingProducts}}</td></tr>            
+                  <tr><td>Pathways of Exposure</td><td>{{substance.PathwaysofExposure}}</td></tr>
+                  <tr><td>Govt Regulations</td><td>{{substance.GovtRegulations}}</td></tr>
+                  <tr><td>Industry Regulations</td><td>{{substance.IndustryRegulations}}</td></tr>
+                </tbody>
+              </table>
+            </div>   
+          </div>        
+        </div>
+        <div class="s2 offset-s10 col">
+         <button class="btn alert" (click)="deleteSubstance()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  END DETAIL VIEW  -->
+<!--  END EDIT VIEW  -->
+<div class="row" *ngIf="appState=='edit'" class="row">
+  <div class="col-xs-12">
+    <form class="col s12" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+    <div class="card-panel">
+      <div class="card-content">
+        <span class="card-title center">Edit the Substance</span>      
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" 
+                placeholder="Substance Name" 
+                id="Substance"
+                name="Substance"
+                [ngModel]="_Substance">
+              <label for="Substance">Substance</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="text"  
+                placeholder="CAS Number" 
+                id="CAS"
+                name="CAS"
+                [ngModel]="_CAS">
+              <label for="CAS">CAS</label>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Grouping" id="Grouping" name="Grouping" [ngModel]="_Grouping">
+                <label for="Grouping">Grouping</label>
+            </div>
+          </div>               
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Synonyms" id="Synonyms" name="Synonyms" [ngModel]="_Synonyms">
+                <label for="Synonyms">Synonyms</label>
+            </div>
+          </div>     
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Manufacture" id="Manufacture" name="Manufacture" [ngModel]="_Manufacture" class=" materialize-textarea"></textarea>
+              <label for="Manufacture">Manufacture</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="PhysicalDesc" id="PhysicalDesc" name="PhysicalDesc" [ngModel]="_PhysicalDesc">
+                <label for="PhysicalDesc">Physical Description</label>
+            </div>
+          </div>         
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Industry Usage" id="IndustryUsage" name="IndustryUsage" [ngModel]="_IndustryUsage">
+                <label for="IndustryUsage">Industry Usage</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Building Products" id="BuildingProducts" name="BuildingProducts" [ngModel]="_BuildingProducts" class=" materialize-textarea"></textarea>
+              <label for="BuildingProducts">Building Poducts</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Pathways of Exposure" id="PathwaysofExposure" name="PathwaysofExposure" [ngModel]="_PathwaysofExposure">
+                <label for="PathwaysofExposure">Pathway of Exposure</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Govt Regulations" id="GovtRegulations" name="GovtRegulations" [ngModel]="_GovtRegulations" class=" materialize-textarea"></textarea>
+              <label for="GovtRegulations">Government Regulations</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea placeholder="Industry Regulations" id="IndustryRegulations" name="IndustryRegulations" [ngModel]="_IndustryRegulations" class=" materialize-textarea"></textarea>
+              <label for="IndustryRegulations">Industry Regulations</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button type="submit" class="btn btn-submit" [disabled]="!f.valid" (onclick)="onSubmit(f.value)">Submit</button>
+            </div>
+          </div>
+
+          <div class="row hide">
+            <div class="col s12">
+              <a href="#">This is a link</a>
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+     </div>
+    </div>
+  </form>
+
+  </div>        
+</div>
+
+
+<!--  END EDIT VIEW  -->
+
+  </div>
+</div>

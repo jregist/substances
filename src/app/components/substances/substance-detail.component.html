@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12">    
+    <div class="card-panel">
+      <div class="card-content">
+        <span class="card-title center">{{substance.Substance}} ({{substance.CAS}})</span>
+        <div class="card-action right">
+          <a (click)="onEdit()">Edit</a>
+        </div>
+        <table class="substancetable">
+          <tbody>
+            <tr><td>Grouping</td><td>{{substance.Grouping}}</td></tr>
+            <tr><td>Synonyms</td><td>{{substance.Synonyms}}</td></tr>
+            <tr><td>Manufacture</td><td>{{substance.Manufacture}}</td></tr>
+            <tr><td>Physical Desc</td><td>{{substance.PhysicalDesc}}</td></tr>
+            <tr><td>Industry Usage</td><td>{{substance.IndustryUsage}}</td></tr>
+            <tr><td>Building Products</td><td>{{substance.BuildingProducts}}</td></tr>            
+            <tr><td>Pathways of Exposure</td><td>{{substance.PathwaysofExposure}}</td></tr>
+            <tr><td>Govt Regulations</td><td>{{substance.GovtRegulations}}</td></tr>
+            <tr><td>Industry Regulations</td><td>{{substance.IndustryRegulations}}</td></tr>
+          </tbody>
+        </table>
+      <div class="card-action right">
+        <a (click)="onEdit()">Edit</a>
+      </div>    
+    </div>   
+  </div>        
+</div>
+
