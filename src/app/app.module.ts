@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterializeDirective } from "angular2-materialize";
-import { FirebaseService } from './services/firebase.service';
+import { ReferenceService } from './services/reference.service';
 import { SubstanceService } from './services/substance.service';
 import { AuthService } from './services/auth.service';
 import { AppComponent } from './app.component';
@@ -59,7 +59,7 @@ var firebaseConfig = {
       method: AuthMethods.Popup
     })
   ],
-  providers: [FirebaseService, SubstanceService, FormBuilder, AuthService],
+  providers: [ReferenceService, SubstanceService, FormBuilder, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

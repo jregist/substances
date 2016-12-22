@@ -11,18 +11,21 @@ export class AuthService {
   user = {};
   isLoggedIn: boolean;
   authState;
+  
 
   
   constructor(public af: AngularFire, private router: Router) {
-    
+    this.af.auth.asObservable().subscribe(
+        authStatus => this.user = authStatus
+        );
   } 
 
   signIn(credentials) {
-    console.log(this.af.auth.login(credentials, {
+    return this.af.auth.login(credentials, {
       provider: AuthProviders.Password,
       method: AuthMethods.Password,
     }
-    ));
+    );
   }
 
   isAuthenticated(): Observable<boolean> {
@@ -41,5 +44,6 @@ export class AuthService {
   }
   signOut() {
     console.log(this.af.auth.logout());
+    this.router.navigate(['']);
   }
 }
